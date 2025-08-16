@@ -76,7 +76,7 @@ const LayerPanel = ({
     let extent = olExtent.createEmpty();
     Promise.all(
       visibleLayers.map(async (layerName) => {
-        const wfsUrl = `http://10.185.41.59:8084/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=${layerName}&outputFormat=application/json`;
+        const wfsUrl = `http://192.168.2.34:8080/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=${layerName}&outputFormat=application/json`;
         const response = await fetch(wfsUrl);
         const data = await response.json();
         if (data.features && data.features.length > 0) {

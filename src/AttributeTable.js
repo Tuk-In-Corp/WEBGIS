@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as XLSX from "xlsx";
 import { saveAs } from "file-saver";
-import { Circles } from "react-loader-spinner";
+import { CircleLoader as Circles} from "react-spinners";
 import styles from "./App.module.css";
 import { FaTable } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";
@@ -17,7 +17,7 @@ const AttributeTable = ({ attributeTable, setAttributeTable, onFeatureSelect,set
     const fetchAttributeData = async () => {
       if (attributeTable.loading && attributeTable.layerName) {
         try {
-          const wfsUrl = `http://10.185.41.59:8084/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=${attributeTable.layerName}&outputFormat=application/json`;
+          const wfsUrl = `http://192.168.2.34:8080/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=${attributeTable.layerName}&outputFormat=application/json`;
           const response = await fetch(wfsUrl);
           const data = await response.json();
 
