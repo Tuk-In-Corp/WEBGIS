@@ -1,0 +1,17 @@
+.ol-unselectable.ol-control.layer-switcher {
+    display: none;
+}
+.ol-zoomslider{
+    display: none;
+}
+.ol-mouse-position{
+    left: 2vh;
+    top: 95%;
+}
+.ol-scale-line {
+    bottom: 2%;
+    left: 25%;
+}
+.ol-mouse-position{
+    display: none ;
+}

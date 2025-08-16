@@ -1,0 +1,1647 @@
+/* Existing styles from previous refactor */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* This prevents scrolling on the page */
+}
+
+.body {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; 
+  margin: 0;
+  padding: 0;
+}
+
+
+.map {
+  width: 100%;
+  height: calc(100% - 210px); 
+  position: absolute;
+  /* top: 60px; Height of header */
+}
+/* .body{
+  height: 100vh;
+  width: 100vw;
+  overflow: none;
+} */
+
+.container {
+  height: 120vh;
+  position: relative;
+}
+
+.southernRailwaysHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff; /* Southern Railways theme color */
+  color: rgb(0, 0, 0);
+  padding: 1% 2%;
+  border-bottom: 1px solid #ffffff;
+  z-index:1000;
+  user-select: none;
+}
+@media (max-width: 768px) {
+  .southernRailwaysHeader {
+    justify-content: space-evenly;
+  }
+}
+
+.logo {
+  width: 5vh; /* Adjust the size of the logo */
+  height: 5vh;
+  margin-left: 25%; 
+  align-items: center;
+  user-select: none;
+}
+
+.title {
+  font-size: 17px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  text-align: center;
+  user-select: none;
+  max-width: 80vw;
+}
+@media (max-width: 768px) {
+  .title {
+    font-size: 3.5vw;
+  }
+}
+.infoLogo {
+  height: 5vh; /* Match the logo height */
+  width: auto;
+  margin-left: 20%;
+  user-select: none;
+}
+
+.infoimage {
+  flex-grow: 1; /* Takes available space */
+  text-align: center;
+  margin: 0 20px; /* Space between text and logos */
+  font-size: 1.2rem; /* Adjust as needed */
+  color: #003366; /* Southern Railways blue color */
+  font-weight: bold;
+  white-space: nowrap; /* Prevents text wrapping */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Adds ... if text is too long */
+  max-width: 60%; /* Prevents text from pushing logos off screen */
+  user-select: none;
+}
+@media (max-width: 768px) {
+  .infoimage {
+    font-size: 1rem;
+    max-width: 50%;
+  }
+  
+  .logo, .infoLogo {
+    height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .infoimage {
+    font-size: 0.8rem;
+    margin: 0 10px;
+  }
+  
+  .logo, .infoLogo {
+    height: 40px;
+  }
+}
+/* Watermark styles */
+.watermarkContainer {
+  position: absolute;
+  bottom: 100px; /* Adjust based on your legend button position */
+  right: 40px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none; /* Allows clicks to pass through */
+  opacity: 0.7; /* Make it semi-transparent */
+  user-select: none;
+}
+
+.watermarkImage {
+  width: 80px; /* Adjust size as needed */
+  height: auto;
+  margin-bottom: 150%;
+  user-select: none;
+}
+
+.developedBy {
+  font-size: 12px;
+  color: #2c2c2c;
+  font-style: italic;
+  margin-bottom: 10%;
+  user-select: none;
+}
+/* .imageryYearContainer {
+  position: absolute;
+  bottom: 21vh;
+  left: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 8px 10px;
+  border-radius: 5px;
+  z-index: 1000;
+  
+  font-size: 10px;
+  color: #333;
+} */
+
+.imageryYearContainer {
+  position: fixed;
+  bottom: 8px;
+  right: 160px; /* Default position */
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 8px 15px;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease;
+  user-select: none;
+}
+
+.imageryYearContainer.legendVisible {
+  right: 275px; /* Adjust this value based on your legend width */
+}
+
+.imageryYearContent {
+  font-size: 10px;
+  color: #333;
+}
+
+.imageryYearText {
+  font-size: 12px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .imageryYearContainer {
+    bottom: 30vh; /* Adjust for smaller screens */
+    left:1%;
+    width: 79%;
+  }
+  
+}
+.attributeTableOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(250, 250, 250, 0.3);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.attributeTableModal {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  width: 90%;
+  max-width: 1200px;
+  max-height: 80vh;
+  overflow: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+}
+
+/* .modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  background-color: #ffff
+} */
+
+.modalTitle {
+  font-size: 1.5rem;
+  color: #333;
+  margin: 0;
+}
+
+.buttonGroup button {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  margin-left: 10px;
+  cursor: pointer;
+  color: #000000;
+  transition: color 0.2s;
+
+}
+
+.buttonGroup button:hover {
+  color: #000;
+}
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: #555;
+  padding: 20px;
+}
+
+.errorContainer {
+  color: #b00020;
+  text-align: center;
+  padding: 20px;
+}
+
+.tableContainer {
+  overflow-x: auto;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  background-color: #fafafa;
+}
+
+.attributeTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.attributeTable thead {
+  background-color: #f0f0f0;
+}
+
+.attributeTable th,
+.attributeTable td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 14px;
+  color: #333;
+}
+
+.attributeTable tr:hover {
+  background-color: #eef5ff;
+}
+.highlight {
+  background-color: yellow;
+  font-weight: bold;
+}
+.nullValue {
+  color: #aaa;
+  font-style: italic;
+}
+
+.footer {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.exportButton {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.exportButton:hover {
+  background-color: #3a7edb;
+}
+
+.minimizedBox {
+  position: fixed;
+  bottom: 12vh;
+  left: 10px;
+  background-color: #4a4a4a;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 16px;
+  cursor: pointer;
+  z-index: 10000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  font-weight: 500;
+}
+.searchContainer {
+  padding: 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 8px 30px 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.clearSearchButton {
+  position: absolute;
+  right: 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #999;
+  font-size: 16px;
+  padding: 0 5px;
+}
+
+.clearSearchButton:hover {
+  color: #333;
+}
+
+
+
+
+
+.layerIcon{
+  position: absolute;
+  top: 10%;
+  left: 2%;
+  background: rgba(241, 241, 242, 0.59);;
+  border:none;
+  color: black;
+  padding: 10px;
+  border-radius: 30%;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.3);
+  z-index: 2000;
+}
+.layerIcon:hover {
+  background-color: #3a3d41;
+  color:white;
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+
+
+
+/* New styles for LayerPanel */
+.layerOverlay {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  background: rgba(205, 0, 0, 0.9);
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  max-height: 90vh;
+  position: relative;
+
+  overflow-y: hidden;
+  z-index: 10;
+}
+
+.layerHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.layerTitle {
+  margin: 0;
+}
+
+.infoButton {
+  background-color: #f0f0f0;
+  color: black;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.infoButtonActive {
+  background-color: #2196F3;
+  color: white;
+}
+
+.layerItem {
+  padding: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.layerItemSelected {
+  background-color: #e6f7ff;
+}
+
+.layerCheckbox {
+  margin-right: 8px;
+}
+
+.layerLabel {
+  cursor: pointer;
+}
+
+.contextMenu {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  /* z-index: 1000; */
+  padding: 5px 0;
+  min-width: 180px;
+}
+
+.contextMenuItem {
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.contextMenuItem:hover {
+  background-color: #f0f0f0;
+}
+/* FeatureInfo.module.css */
+.featureModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.featureInfoModal {
+  background-color: white;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 800px;
+  max-height: 80vh;
+  padding: 20px;
+  overflow-y: auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  cursor: move;
+}
+.featureModal:hover {
+  cursor: move;
+}
+
+
+.featureInfoHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.featureInfoTitle {
+  margin: 0;
+}
+
+.featureInfoCloseButton {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #666;
+}
+
+.featureInfoSection {
+  margin-bottom: 15px;
+}
+
+.featureInfoAttributesLabel {
+  margin-bottom: 10px;
+}
+
+.featureInfoTableContainer {
+  overflow-x: auto;
+}
+
+.featureInfoTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.featureInfoTableHeaderRow {
+  background-color: #f5f5f5;
+}
+
+.featureInfoTableHeaderCell {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  white-space: nowrap;
+}
+
+.featureInfoTableCell {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  white-space: nowrap;
+}
+
+.featureInfoNullValue {
+  color: #999;
+}
+.featureModal {
+  /* Your existing styles */
+  position: absolute;
+  /* Other styles remain the same */
+}
+.noDrag {
+  cursor: default !important;
+}
+
+.modalHeader {
+  /* Your existing styles */
+  cursor: grab;
+  user-select: none; /* Prevent text selection while dragging */
+}
+/* Add to existing App.module.css */
+.infoButton {
+  background-color: #2196F3; /* Blue when inactive */
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px; /* Adjust for icon size */
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.infoButtonActive {
+  background-color: #F44336; /* Red when active */
+  color: white;
+}
+/* Minimized state styles */
+.minimizedFeatureInfo {
+  position: fixed;
+  width: 200px;
+  height: 40px;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+  cursor: move;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  border: 1px solid #ddd;
+  user-select: none;
+}
+
+.minimizedFeatureInfo:hover {
+  cursor: move;
+}
+
+.minimizedHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.minimizedHeader span {
+  cursor: pointer;
+  flex-grow: 1;
+}
+
+.minimizedCloseButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0 5px;
+}
+
+.noDrag {
+  cursor: default !important;
+}
+
+.measurementToolContainer {
+  position: absolute;
+  top: 20%;
+  left: 2%;
+  z-index: 1;
+}
+
+.measurementIcon {
+  background: rgba(255, 255, 255, 0.5);
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 15px;
+  border-radius: 20%;
+  cursor: pointer;
+  margin-top: -3vh;
+}
+.measurementIcon:hover {
+  background-color: #3a3d41;
+  color:white;
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
+.measurementMenu {
+  position: absolute;
+  top: 40px;
+  left: 100%;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 8px;
+  /* z-index: 1000; */
+  min-width: 180px;
+}
+
+.measurementButton {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 8px 12px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #2d3748;
+}
+
+.measurementButton:hover {
+  background-color: #ebf8ff;
+}
+
+.buttonIcon {
+  margin-right: 8px;
+  color: #3182ce;
+}
+
+.clearButton {
+  color: #e53e3e;
+}
+
+.clearButton .buttonIcon {
+  color: #e53e3e;
+}
+
+.clearButton:hover {
+  background-color: #fff5f5;
+}
+
+.measurementDisplay {
+  position: fixed;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 12px;
+  z-index: 5000;
+  min-width: 250px;
+  border: 1px solid #e2e8f0;
+}
+
+.measurementHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e2e8f0;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.dragHandle {
+  cursor: move;
+  padding: 4px;
+  opacity: 0.6;
+  margin-right: 8px;
+}
+
+.dragHandle:hover {
+  opacity: 1;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  opacity: 0.6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: red;
+}
+
+.closeButton:hover {
+  opacity: 1;
+  background-color: #edf2f7;
+  border-radius: 4px;
+}
+
+.measurementValue {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 8px 0;
+  color: #3182ce;
+}
+
+.unitSelector {
+  margin-top: 8px;
+}
+
+.contextMenu {
+  position: fixed;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 8px;
+  z-index: 1000;
+  min-width: 180px;
+}
+
+.contextMenu button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 8px 12px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #2d3748;
+}
+
+.contextMenu button:hover {
+  background-color: #ebf8ff;
+}
+
+.contextMenuIcon {
+  margin-right: 8px;
+  color: #4a5568;
+}
+
+/* Custom styles for react-select */
+.react-select-container {
+  font-size: 14px;
+}
+
+.react-select__control {
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: none !important;
+  min-height: 36px !important;
+}
+
+.react-select__control:hover {
+  border-color: #3182ce !important;
+}
+
+.react-select__menu {
+  z-index: 1001 !important;
+}
+.legendContainer {
+  position: fixed;
+  bottom: 1vh;
+  right: 20px;
+  z-index: 1000;
+}
+
+.toggleButton {
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  user-select: none;
+}
+
+.legendWrapper {
+  position: fixed;
+  top: 40%;
+  right: 20px;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  user-select: none;
+}
+
+.closeLegendButton {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #fc0303;
+  margin-bottom: 4px;
+  outline: solid 2px red;
+  position: absolute;
+  top: 1%;
+  right: 2%;
+  border-radius: 10%;
+}
+
+.closeLegendButton:hover{
+  background-color: #fc0303;
+  color: white;
+}
+.legend {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 12px;
+  border-radius: 8px;
+  width: 220px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.legendHeader {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.legendContent {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.legendList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.legendItem {
+  margin-bottom: 8px;
+}
+
+.legendItemRow {
+  display: flex;
+  align-items: center;
+}
+
+.legendImage {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  margin-right: 8px;
+  user-select: none;
+}
+
+.legendLabel {
+  font-size: 14px;
+}
+@media screen and (max-width: 768px) {
+  .legendContainer {
+    bottom: 3%;
+    right: 10px;
+  }
+  
+  .legend {
+    width: 90vw; /* Adjust for smaller screens */
+  }
+  
+  .closeLegendButton {
+    top: 5%;
+    right: 5%;
+  }
+  
+  .legendImage {
+    width: 20px; /* Adjust size for smaller screens */
+    height: 20px;
+  }
+  
+  .legendLabel {
+    font-size: 12px; /* Adjust font size for smaller screens */
+  }
+  
+}
+
+.compassContainer {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  user-select: none;
+}
+
+.compass {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease-out;
+}
+
+.compassOuterRing {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border: 2px solid #555;
+  border-radius: 50%;
+}
+
+.compassInnerRing {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border: 1px solid #777;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.compassNeedle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.compassNeedleTop {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  margin-left: -6px;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 20px solid #d00;
+}
+
+.compassNeedleBottom {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  margin-left: -6px;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 20px solid #333;
+}
+
+.directionButton {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  color: #333;
+  font-weight: bold;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.1s ease;
+  z-index: 10;
+}
+
+/* Position the buttons */
+.northButton {
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.eastButton {
+  top: 50%;
+  right: 5px;
+  transform: translateY(-50%);
+}
+
+.southButton {
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.westButton {
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+}
+
+.directionButton:hover {
+  background-color: #f0f0f0;
+  /* transform: translate(var(--tx, -50%), var(--ty, 0)) scale(1.1); */
+}
+
+.directionButton:active {
+  background-color: #e0e0e0;
+  /* transform: translate(var(--tx, -50%), var(--ty, 0)) scale(0.95); */
+  cursor: grabbing;
+}
+
+.resetButton {
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.resetButton:hover {
+  background-color: #f0f0f0;
+}
+
+.resetButton svg {
+  fill: #555;
+}
+
+/* App.module.css (LayerToggle styles only) */
+
+/* Layer Toggle container (positioned on the map) */
+.layerToggleContainer {
+  position: absolute;
+  top: 75%;
+  left: 2%;
+  z-index: 1;
+  user-select: none;
+}
+
+/* Toggle icon (OSM or Satellite icon) */
+.toggleIcon {
+  width: 65px;
+  height: 65px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  user-select: none;
+  
+}
+
+.toggleIcon:hover {
+  transform: scale(1.1);
+}
+
+/* Feature Info Modal Styles */
+.featureModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.featureModal {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  width: 80%;
+  max-width: 900px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+}
+
+.modalHeader h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.AttributeTablecloseButton {
+  background-color: rgb(255, 255, 255);
+  font-size: large;
+  align-items: center;
+  border: none;
+  color: rgb(0, 0, 0);
+  cursor: pointer black;
+  padding: 2px 5px;
+  margin-bottom: 5%;
+}
+.AttributeTablecloseButton:hover{
+  background-color: #b9b4b4;
+  border-radius: 5%;
+  color: rgb(0, 0, 0);
+}
+.coordinatesInfo {
+  padding: 10px 20px;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #ddd;
+}
+
+.coordinatesInfo p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.tableContainer {
+  overflow-y: auto;
+  flex-grow: 1;
+  padding: 0 10px;
+}
+
+.featureTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+}
+
+.featureTable th, .featureTable td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.featureTable th {
+  background-color: #f9f9f9;
+  font-weight: 600;
+}
+
+.featureTable tr:hover {
+  background-color: #f5f5f5;
+}
+
+
+
+
+
+/* Toolbar Styles */
+.toolbar {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.toolbar-button {
+  background: #2196F3;
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.toolbar-button:hover {
+  background: #0d8aee;
+  transform: scale(1.05);
+}
+
+.toolbar-button.active {
+  background: #0d8aee;
+  box-shadow: 0 0 0 2px white;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 350px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar-header {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebar-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #666;
+}
+
+.sidebar-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 15px;
+}
+
+/* Layer Panel Styles */
+.layer-search {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.layer-list {
+  max-height: calc(100vh - 150px);
+  overflow-y: auto;
+}
+
+.layer-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.layer-checkbox {
+  margin-right: 10px;
+}
+
+
+.attributeTableContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  height: 80vh;
+  background-color: #ffffff;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  background-color: #258aee;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+  border-bottom: 1px solid #ddd;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 8px;
+}
+
+.exportButton{
+  background-color: #0a7016;
+  width: 10%;
+  align-self: center;
+  outline: yellowgreen solid 1px;
+}
+.exportButton:hover
+ {
+  background-color: #ffffff;
+  color: green;
+}
+.minimizeButton{
+  background-color: rgb(255, 255, 255);
+  font-size: large;
+  border: none;
+  color: #000000;
+  align-items: center;
+  padding: 2px 5px;
+  margin-bottom: 5%;
+  cursor:  pointer black;
+}
+.minimizeButton:hover{
+  background-color: #c0bebe;
+  color: rgb(0, 0, 0);
+}
+/* .closeButton {
+  padding: 6px 12px;
+  font-size: 14px;
+  background-color: #f40303;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 50%;
+}
+.closeButton:hover{
+  background-color: rgb(165, 166, 166);
+  color: red;
+} */
+
+
+.tableWrapper {
+  flex-grow: 1;
+  overflow: auto;
+}
+
+.attributeTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.attributeTable th,
+.attributeTable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.attributeTable th {
+  background-color: #f1f1f1;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.highlighted {
+  background-color: #ffffcc;
+}
+
+/* Minimized view styles */
+.minimizedContainer {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 999;
+  cursor: pointer;
+}
+
+.minimizedTable {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+}
+
+.minimizedTable table {
+  font-size: 12px;
+  border-collapse: collapse;
+}
+
+.minimizedTable th,
+.minimizedTable td {
+  border: 1px solid #ccc;
+  padding: 4px 6px;
+}
+
+.clickToExpandText {
+  font-size: 11px;
+  color: #666;
+  text-align: center;
+  margin-top: 6px;
+}
+
+.zoomContainer {
+  position: absolute;
+  bottom: 68%;
+  right: 28px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* Adjust spacing between buttons */
+
+}
+
+.zoomButton {
+  background-color: rgba(255, 255, 255, 0.667);
+  color: rgb(0, 0, 0);
+  border: none;
+  width: 40px; /* Set fixed width */
+  height: 40px; /* Set fixed height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px; /* Adjust font size */
+  border-radius: 5px; /* Optional: Add rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.zoomButton:hover {
+  background-color: #3a3d41;
+  color:white;
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+
+.joystickContainer {
+  position: absolute;
+  top: 10%; /* Space from the top of the map */
+  right: -20px; /* Space from the right of the map */
+  width: 100px;
+  height: 100px;
+  z-index: 1000; /* Ensure it appears above the map */
+}
+
+.joystickBase {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: transparent; /* No background for the base */
+}
+
+.outerCircle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 60%;
+  background-color: #333; /* Dark background for the outer circle */
+  border: 2px solid #666;
+  border-radius: 50%;
+  box-sizing: border-box;
+  transition: transform 0.0s ease; /* Smooth rotation for button clicks */
+  cursor: grab; /* Indicate that the circle is draggable */
+}
+
+.outerCircle:active {
+  cursor: grabbing; /* Change cursor while dragging */
+}
+
+.northMarkerContainer {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1002; /* Ensure "N" marker is above other elements */
+}
+
+.northMarkerCircle {
+  width: 11px;
+  height: 11px;
+  background-color: #fff;
+  border: 2px solid #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 9px;
+   user-select: none; 
+  color: #000;
+}
+
+.innerRing {
+  position: absolute;
+  top: 10px; /* Adjusted position */
+  left: 10px; /* Adjusted position */
+  width: 40%; /* Reduced size */
+  height: 40%; /* Reduced size */
+  background-color: #444;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.resetButton {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background-color: #fffefe;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  bottom: 5px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  justify-content: center;
+  z-index: 1002;
+}
+
+.resetButton:hover {
+  background-color: #888;
+}
+
+.directionButton {
+  position: absolute;
+  width: 1px; /* Smaller size to fit inside the inner circle */
+  height: 1px;
+  background-color: #666;
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 12px; /* Smaller font size to fit */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001; /* Ensure buttons are above the inner circle */
+  user-select: none;
+}
+
+.directionButton:hover {
+  background-color: #888;
+  
+}
+
+.upButton {
+  top: 3px; /* Position inside the inner circle */
+  left: 50%;
+  transform: translateX(-50%);
+  user-select: none;
+
+}
+
+.rightButton {
+  right: 4px; /* Position inside the inner circle */
+  top: 50%;
+  transform: translateY(-50%);
+  user-select: none;
+}
+
+.downButton {
+  bottom: 4px; /* Position inside the inner circle */
+  left: 50%;
+  transform: translateX(-50%);
+  user-select: none;
+}
+
+.leftButton {
+  left: 4px; /* Position inside the inner circle */
+  top: 50%;
+  transform: translateY(-50%);
+  user-select: none;
+}
+
+.noSelect {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
