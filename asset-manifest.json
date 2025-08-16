@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/WEBGIS/static/css/main.51a48648.css",
+    "main.js": "/WEBGIS/static/js/main.0a5e3baa.js",
+    "static/js/453.010825c8.chunk.js": "/WEBGIS/static/js/453.010825c8.chunk.js",
+    "static/media/Manual.pdf": "/WEBGIS/static/media/Manual.56e2b3de8ec6d23f9912.pdf",
+    "static/media/Satellite.png": "/WEBGIS/static/media/Satellite.88fc2398a28e759e714b.png",
+    "static/media/osm.png": "/WEBGIS/static/media/osm.cc8b07b408dae6c3b208.png",
+    "static/media/SR.jpg": "/WEBGIS/static/media/SR.60ee78042c66d17693bc.jpg",
+    "static/media/Tukincorp.png": "/WEBGIS/static/media/Tukincorp.8f3ac6aa8e1c2c2d6c3e.png",
+    "index.html": "/WEBGIS/index.html",
+    "main.51a48648.css.map": "/WEBGIS/static/css/main.51a48648.css.map",
+    "main.0a5e3baa.js.map": "/WEBGIS/static/js/main.0a5e3baa.js.map",
+    "453.010825c8.chunk.js.map": "/WEBGIS/static/js/453.010825c8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.51a48648.css",
+    "static/js/main.0a5e3baa.js"
+  ]
+}
