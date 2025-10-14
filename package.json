@@ -2,7 +2,7 @@
   "name": "webgis-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Tuk-In-Corp.github.io/WEBGIS",
+  "homepage": "/WEBGIS",
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
