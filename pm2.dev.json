@@ -5,7 +5,7 @@
       "script": "npm",
       "interpreter": "none",
       "args": "start",
-      "autorestart": "true",
+      "autorestart": true,
       "max_restarts": "2",
       "restart_delay": "5000",
       "watch": "false"
