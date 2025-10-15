@@ -296,7 +296,7 @@ const WebGIS = () => {
           className={styles.logo}
         />
         <h1 className={styles.infoimage}>
-          SIGNALLING AND TELECOMMUNICATION PROJECT - SOUTHERN RAILWAYS
+          Tukincorp Private Limited
         </h1>
         <img
           title="User manual"
