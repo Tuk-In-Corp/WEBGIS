@@ -70,7 +70,7 @@ const WebGIS = () => {
 
     const newWmsLayer = new ImageLayer({
       source: new ImageWMS({
-        url: "http://59.92.124.41:8086/geoserver/wms",
+        url: "https://dev-gs.webgis.ttic.shop/geoserver/wms",
         params: { LAYERS: DEFAULT_RASTER_LAYERS.join(","), TILED: true },
         ratio: 1,
         serverType: "geoserver",
@@ -111,7 +111,7 @@ const WebGIS = () => {
   const fetchGeoServerLayers = async () => {
     try {
       const response = await fetch(
-        "http://59.92.124.41:8086/geoserver/wms?service=WMS&version=1.3.0&request=GetCapabilities"
+        "https://dev-gs.webgis.ttic.shop/geoserver/wms?service=WMS&version=1.3.0&request=GetCapabilities"
       );
       const text = await response.text();
       const parser = new DOMParser();
@@ -296,7 +296,7 @@ const WebGIS = () => {
           className={styles.logo}
         />
         <h1 className={styles.infoimage}>
-          SIGNALLING AND TELECOMMUNICATION PROJECT - SOUTHERN RAILWAYS
+          Tukincorp Private Limited
         </h1>
         <img
           title="User manual"
