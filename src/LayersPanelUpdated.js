@@ -76,7 +76,7 @@ const LayerPanel = ({
     let extent = olExtent.createEmpty();
     Promise.all(
       visibleLayers.map(async (layerName) => {
-        const wfsUrl = `http://59.92.124.41:8086/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=${layerName}&outputFormat=application/json`;
+        const wfsUrl = `https://dev-gs.webgis.ttic.shop/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=${layerName}&outputFormat=application/json`;
         const response = await fetch(wfsUrl);
         const data = await response.json();
         if (data.features && data.features.length > 0) {

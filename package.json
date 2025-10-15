@@ -2,7 +2,7 @@
   "name": "webgis-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Tuk-In-Corp.github.io/WEBGIS",
+  "homepage": "/WEBGIS",
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
@@ -33,6 +33,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:dev": "PORT=4011 react-scripts start",
+    "start:uat": "PORT=4012 react-scripts start",
+    "start:prod": "PORT=4013 react-scripts start",
     "predeploy":"npm run build",
     "deploy":"gh-pages -d build",
     "build": "react-scripts build",

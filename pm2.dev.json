@@ -1,0 +1,14 @@
+{
+  "apps": [
+    {
+      "name": "WebGIS_DEV",
+      "script": "npm",
+      "interpreter": "none",
+      "args": "run start:dev",
+      "autorestart": true,
+      "max_restarts": "2",
+      "restart_delay": "5000",
+      "watch": "false"
+    }
+  ]
+}
