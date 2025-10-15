@@ -33,6 +33,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:dev": "PORT=4011 react-scripts start",
+    "start:uat": "PORT=4012 react-scripts start",
+    "start:prod": "PORT=4013 react-scripts start",
     "predeploy":"npm run build",
     "deploy":"gh-pages -d build",
     "build": "react-scripts build",
