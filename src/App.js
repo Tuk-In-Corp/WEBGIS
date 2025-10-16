@@ -296,7 +296,7 @@ const WebGIS = () => {
           className={styles.logo}
         />
         <h1 className={styles.infoimage}>
-          Tukincorp Private Limited
+          Tukincorp Pvt. Ltd.
         </h1>
         <img
           title="User manual"
