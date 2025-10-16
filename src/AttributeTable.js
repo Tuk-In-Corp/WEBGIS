@@ -17,7 +17,7 @@ const AttributeTable = ({ attributeTable, setAttributeTable, onFeatureSelect,set
     const fetchAttributeData = async () => {
       if (attributeTable.loading && attributeTable.layerName) {
         try {
-          const wfsUrl = `https://dev-gs.webgis.ttic.shop/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=${attributeTable.layerName}&outputFormat=application/json`;
+          const wfsUrl = `https://dev-gs.webgis.ttic.shop/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=${attributeTable.layerName}&outputFormat=application/json`;
           const response = await fetch(wfsUrl);
           const data = await response.json();
 

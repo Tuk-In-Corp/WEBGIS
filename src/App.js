@@ -70,7 +70,7 @@ const WebGIS = () => {
 
     const newWmsLayer = new ImageLayer({
       source: new ImageWMS({
-        url: "https://dev-gs.webgis.ttic.shop/geoserver/wms",
+        url: "https://dev-gs.webgis.ttic.shop/wms",
         params: { LAYERS: DEFAULT_RASTER_LAYERS.join(","), TILED: true },
         ratio: 1,
         serverType: "geoserver",
@@ -111,7 +111,7 @@ const WebGIS = () => {
   const fetchGeoServerLayers = async () => {
     try {
       const response = await fetch(
-        "https://dev-gs.webgis.ttic.shop/geoserver/wms?service=WMS&version=1.3.0&request=GetCapabilities"
+        "https://dev-gs.webgis.ttic.shop/wms?service=WMS&version=1.3.0&request=GetCapabilities"
       );
       const text = await response.text();
       const parser = new DOMParser();
